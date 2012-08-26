@@ -1,42 +1,69 @@
 @echo off
 
-:: To run this script from the Decoda lua editor, create an "External Tool"
-:: which takes this script as its "Command" and the following "Arguments":
-:: C:\Progra~2\Lua\5.1\ $(ItemFileName).$(ItemExt)
+:: ========== Run Tests Script ==========
+:: Takes a single argument: which tests to run
+:: Example argument values:
+:: *.lua             (runs all tests)
+:: test_example.lua  (runs a specific test)
 
-:: What directory did you install Lua in?
-set LUA_INSTALL_PATH=C:\Program Files (x86)\Lua\5.1\
+:: If your argument value is a file that is not a test file (test_*.lua),
+:: the script will attempt to run the individual test file you most
+:: recently executed. If it can't determine that, it will run all tests.
 
-:: Hopefully you won't have to edit below this line!
+:: Run this script from the Decoda lua editor:
+:: 1. Tools > External Tools > Add
+:: 2. Title: Run Tests
+:: 3. Command: <path_to_this_script>
+:: 4. Arguments: $(ItemFileName).$(ItemExt)
+:: 5. OK
+:: You can set a keyboard shortcut to this via Tools > Settings
 
-set PATH=%1
-if "%PATH%"=="" set PATH=%LUA_INSTALL_PATH%
+:: This script assumes %LUA_DEV% is your Lua install path
+:: Lua for Windows does this for you when you install Lua
+:: Download LfW: http://code.google.com/p/luaforwindows/ 
 
-set TEST_FILES_INPUT=%2
+:: ==== Hopefully you won't have to edit below this line! ====
 
-:: User data filename
+set TEST_FILES_INPUT=%1
+
+:: Make sure Lua is in our %PATH%
+if "%PATH%"=="" set PATH=%LUA_DEV%
+
+:: Generate .user filename
 set USER_DATA_FILENAME=%~n0.user
 
+:: Change the working directory to the directory where this script lives
 %~d0
 cd %~d0%~p0
 
-:: http://www.lua.org/pil/8.1.html
-set LUA_PATH=..\?.lua
+:: Determine which test(s) to execute based on user input
+set defaultTestFilesShouldBeUsed=false
+set testFilesInputIsSpecificTestFile=false
+set userDataFileExists=false
+if exist "%USER_DATA_FILENAME%" set userDataFileExists=true
+if "%TEST_FILES_INPUT%"=="" set defaultTestFilesShouldBeUsed=true
+if "%TEST_FILES_INPUT%"=="." set defaultTestFilesShouldBeUsed=true
+if "%TEST_FILES_INPUT:~0,5%"=="test_" set testFilesInputIsSpecificTestFile=true
+if "%testFilesInputIsSpecificTestFile%%userDataFileExists%"=="falsefalse" set defaultTestFilesShouldBeUsed=true
 
-:: What test files should be executed?
-if "%TEST_FILES_INPUT%"=="." (
+if "%defaultTestFilesShouldBeUsed%"=="true" (
     set TEST_FILES=*.lua
 ) else (
-    if "%TEST_FILES_INPUT:~0,5%"=="test_" (
+	if "%testFilesInputIsSpecificTestFile%"=="true" (
 		set TEST_FILES=%TEST_FILES_INPUT%
 	) else (
+		:: read the last-executed test into %TEST_FILES%
 		FOR /F "tokens=*" %%i IN (%USER_DATA_FILENAME%) DO set TEST_FILES=%%i
 	)
 )
 
-echo Executing: %TEST_FILES%
-
+:: Tell Lua what patterns to try when resolving 'require' statements (http://www.lua.org/pil/8.1.html)
+set LUA_PATH=..\?.lua
 :: Execute the %TEST_FILES%
 for /f %%a IN ('dir /b /s %TEST_FILES%') do lua %%a
 
-if "%TEST_FILES_INPUT:~0,5%"=="test_" echo %TEST_FILES% > %USER_DATA_FILENAME%
+:: If we executed a specific test, write that to the .user file to read later
+if "%testFilesInputIsSpecificTestFile%"=="true" echo %TEST_FILES% > %USER_DATA_FILENAME%
+
+echo Parameter: %TEST_FILES_INPUT%
+echo Executed : %TEST_FILES%
