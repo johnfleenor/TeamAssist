@@ -1,4 +1,6 @@
 <game>
-	<name>ns2</name>
-	<description>Natural Selection 2 (Team Assist)</description>
+    <name>ns2</name>
+    <description>Natural Selection 2 (Team Assist)</description>
+    <client>ta/Client.lua</client>
+    <server>ta/Server.lua</server>
 </game>

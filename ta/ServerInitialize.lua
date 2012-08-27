@@ -1,0 +1,1 @@
+Script.Load("ta/events/clientConnected.lua")
