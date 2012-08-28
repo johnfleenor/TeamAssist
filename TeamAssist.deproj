@@ -67,10 +67,7 @@
     <filename>ta_tests\test_mapManager.lua</filename>
   </file>
   <file>
-    <filename>ta_tests\test_playerManager.lua</filename>
-  </file>
-  <file>
-    <filename>ta_tests\test_serverManager.lua</filename>
+    <filename>ta\helpers\collections.lua</filename>
   </file>
   <file>
     <filename>ta_tests\test_storageManager.lua</filename>
@@ -98,5 +95,38 @@
   </file>
   <file>
     <filename>ta\voteManager.lua</filename>
+  </file>
+  <file>
+    <filename>lua\Sayings.lua</filename>
+  </file>
+  <file>
+    <filename>ta\Client.lua</filename>
+  </file>
+  <file>
+    <filename>ta\Server.lua</filename>
+  </file>
+  <file>
+    <filename>ta\ClientInitialize.lua</filename>
+  </file>
+  <file>
+    <filename>game_setup.xml</filename>
+  </file>
+  <file>
+    <filename>ta\ServerInitialize.lua</filename>
+  </file>
+  <file>
+    <filename>ta\ns2\engine.lua</filename>
+  </file>
+  <file>
+    <filename>ta\events\clientConnected.lua</filename>
+  </file>
+  <file>
+    <filename>ta\notifications\clientGreeter.lua</filename>
+  </file>
+  <file>
+    <filename>ta_tests\test_clientConnected.lua</filename>
+  </file>
+  <file>
+    <filename>ta_tests\test_clientGreeter.lua</filename>
   </file>
 </project>
