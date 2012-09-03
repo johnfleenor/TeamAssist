@@ -23,7 +23,7 @@ end
 -- @return User object, or nil
 function engine.getPlayerByName(self, playerName)
     assert(#playerName>0,"Player name empty")
-    
+
 end
 
 --- Assign a player to a specific team

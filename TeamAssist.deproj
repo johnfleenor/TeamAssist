@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
   <file>
+    <filename>ta\Client.lua</filename>
+  </file>
+  <file>
+    <filename>ta\ClientInitialize.lua</filename>
+  </file>
+  <file>
+    <filename>lua\Sayings.lua</filename>
+  </file>
+  <file>
+    <filename>ta\Server.lua</filename>
+  </file>
+  <file>
+    <filename>ta\ServerInitialize.lua</filename>
+  </file>
+  <file>
+    <filename>ta\events\clientConnected.lua</filename>
+  </file>
+  <file>
+    <filename>ta\notifications\clientGreeter.lua</filename>
+  </file>
+  <file>
     <filename>ta\helpers\collections.lua</filename>
   </file>
   <file>
@@ -13,6 +34,9 @@
     <filename>ta\helpers\conditionalValues.lua</filename>
   </file>
   <file>
+    <filename>ta\config\configurationSettings.lua</filename>
+  </file>
+  <file>
     <filename>ta\resources\constants.lua</filename>
   </file>
   <file>
@@ -22,6 +46,12 @@
     <filename>ta\cvarManager.lua</filename>
   </file>
   <file>
+    <filename>ta\ns2\engine.lua</filename>
+  </file>
+  <file>
+    <filename>game_setup.xml</filename>
+  </file>
+  <file>
     <filename>ta\mapManager.lua</filename>
   </file>
   <file>
@@ -29,6 +59,9 @@
   </file>
   <file>
     <filename>ta\playerManager.lua</filename>
+  </file>
+  <file>
+    <filename>ta\reservedSlots.lua</filename>
   </file>
   <file>
     <filename>ta\serverManager.lua</filename>
@@ -41,6 +74,12 @@
   </file>
   <file>
     <filename>ta\teamManager.lua</filename>
+  </file>
+  <file>
+    <filename>ta_tests\test_clientConnected.lua</filename>
+  </file>
+  <file>
+    <filename>ta_tests\test_clientGreeter.lua</filename>
   </file>
   <file>
     <filename>ta_tests\test_clientManager.lua</filename>
@@ -67,7 +106,10 @@
     <filename>ta_tests\test_mapManager.lua</filename>
   </file>
   <file>
-    <filename>ta\helpers\collections.lua</filename>
+    <filename>ta_tests\test_reservedSlots.lua</filename>
+  </file>
+  <file>
+    <filename>ta_tests\test_serverManager.lua</filename>
   </file>
   <file>
     <filename>ta_tests\test_storageManager.lua</filename>
@@ -95,38 +137,5 @@
   </file>
   <file>
     <filename>ta\voteManager.lua</filename>
-  </file>
-  <file>
-    <filename>lua\Sayings.lua</filename>
-  </file>
-  <file>
-    <filename>ta\Client.lua</filename>
-  </file>
-  <file>
-    <filename>ta\Server.lua</filename>
-  </file>
-  <file>
-    <filename>ta\ClientInitialize.lua</filename>
-  </file>
-  <file>
-    <filename>game_setup.xml</filename>
-  </file>
-  <file>
-    <filename>ta\ServerInitialize.lua</filename>
-  </file>
-  <file>
-    <filename>ta\ns2\engine.lua</filename>
-  </file>
-  <file>
-    <filename>ta\events\clientConnected.lua</filename>
-  </file>
-  <file>
-    <filename>ta\notifications\clientGreeter.lua</filename>
-  </file>
-  <file>
-    <filename>ta_tests\test_clientConnected.lua</filename>
-  </file>
-  <file>
-    <filename>ta_tests\test_clientGreeter.lua</filename>
   </file>
 </project>

@@ -26,4 +26,12 @@ function test_getRandomFrom_returns_unpredictable_result()
     assert(results[TEAM_ONE] > 0 and results[TEAM_TWO] > 0, "getRandomFrom should return unpredictable result")
 end
 
+function test_size_returns_error_if_parameter_is_not_a_table()
+    assertTrue(1==0, "This test still needs to be written.")
+end
+
+function test_size_returns_numeric_value()
+    assertTrue(1==0, "This test still needs to be written.")
+end
+
 runTests{useANSI = false}
